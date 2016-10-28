@@ -10,12 +10,14 @@ public class Cliente implements Serializable{
     private boolean vip;
     private PresupuestoList presupuestos;
 
+    public Cliente() {}
+
     public Cliente(String nombre, String apellidos, int telefono, boolean vip) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.telefono = telefono;
         this.vip = vip;
-        presupuestos = new PresupuestoList();
+        this.presupuestos = new PresupuestoList();
     }
 
     public String getNombre() {return nombre;}
@@ -34,5 +36,20 @@ public class Cliente implements Serializable{
 
     public void setPresupuestos(PresupuestoList presupuestos) {
         this.presupuestos = presupuestos;
+    }
+
+    public int cantidadPresupuestos(){
+        return getPresupuestos().getPresupuestoMapTelefono().size();
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", telefono=" + telefono +
+                ", vip=" + vip +
+                ", presupuestos=" + presupuestos +
+                '}';
     }
 }
