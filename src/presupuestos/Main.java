@@ -46,7 +46,7 @@ public class Main {
                     mostrarClientesPresupuestos();
                     break;
                 case 7:
-                    cambiarEstadoPresupuesto("aprovado");
+                    cambiarEstadoPresupuesto();
                     break;
                 case 8:
                     System.out.println("Hasta la proxima.");
@@ -146,9 +146,10 @@ public class Main {
         }
     }
 
-    private static void cambiarEstadoPresupuesto(String nuevoEstado) {
+    private static void cambiarEstadoPresupuesto() {
 
         int idPresupuesto = EntradaDatos.pedirEntero("Introducir id presupuesto: ");
+        String nuevoEstado = EntradaDatos.pedirCadena("Nuevo estado:");
         misClientes.getLista().values().forEach(
                 cliente -> {
                     Presupuesto presupuesto = cliente.getPresupuestos().getPresupuesto(idPresupuesto);
@@ -156,6 +157,7 @@ public class Main {
                         presupuesto.setEstado(nuevoEstado);
                     }
                 });
+        miFichero.grabar(misClientes);
     }
 
     private static String pedirCadenaNoVacia(String msg) {
