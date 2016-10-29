@@ -147,7 +147,6 @@ public class Main {
     }
 
     private static void cambiarEstadoPresupuesto() {
-
         int idPresupuesto = EntradaDatos.pedirEntero("Introducir id presupuesto: ");
         String nuevoEstado = EntradaDatos.pedirCadena("Nuevo estado:");
         misClientes.getLista().values().forEach(
